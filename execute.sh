@@ -1,0 +1,13 @@
+CUDA_VISIBLE_DEVICES=0 python3 main.py \
+    --mode train \
+    --model_type DDPM \
+    --img_size 512 \
+    --num_img_channels 1 \
+    --dataset lungs \
+    --img_dir DATA_FOLDER \
+    --train_batch_size 2 \
+    --eval_batch_size 2 \
+    --num_epochs 400 \
+    --seg_dir MASK_FOLDER \
+    --segmentation_guided \
+    --num_segmentation_classes 5 \

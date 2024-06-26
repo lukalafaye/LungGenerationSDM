@@ -1,0 +1,8 @@
+DATA_FOLDER/
+ddim-ct_organ_large-256/ 
+ddpm-lungs-512-segguided/ 
+MASK_FOLDER/
+__pycache__/
+nohup.out 
+venv/
+runs/

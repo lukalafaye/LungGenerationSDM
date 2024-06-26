@@ -46,7 +46,9 @@ def main(
 
     # load config
     output_dir = '{}-{}-{}'.format(model_type.lower(), dataset, img_size)  # the model namy locally and on the HF Hub
+
     if segmentation_guided:
+        print("Segmentation guided OK")
         output_dir += "-segguided"
         assert seg_dir is not None, "must provide segmentation directory for segmentation guided training/sampling"
 
@@ -90,10 +92,11 @@ def main(
             # make sure the images are matched to the segmentation masks
             img_dir_train = os.path.join(img_dir, "train")
             img_paths_train = [os.path.join(img_dir_train, f) for f in os.listdir(img_dir_train)]
-            seg_paths_train = {} 
+            seg_paths_train = {}
             for seg_type in seg_types:
                 seg_paths_train[seg_type] = [os.path.join(seg_dir, seg_type, "train", f) for f in os.listdir(img_dir_train)]
         else:
+            seg_paths_train = {}
             for seg_type in seg_types:
                 seg_paths_train[seg_type] = [os.path.join(seg_dir, seg_type, "train", f) for f in os.listdir(os.path.join(seg_dir, seg_type, "train"))]
 
@@ -104,6 +107,7 @@ def main(
             for seg_type in seg_types:
                 seg_paths_eval[seg_type] = [os.path.join(seg_dir, seg_type, evalset_name, f) for f in os.listdir(img_dir_eval)]
         else:
+            seg_paths_eval = {}
             for seg_type in seg_types:
                 seg_paths_eval[seg_type] = [os.path.join(seg_dir, seg_type, evalset_name, f) for f in os.listdir(os.path.join(seg_dir, seg_type, evalset_name))]
 
@@ -235,6 +239,10 @@ def main(
                 return {**{"images": images}, **segs, **{"image_filenames": images_filenames}}
             else:
                 return {**segs, **{"image_filenames": images_filenames}}
+
+        dataset_train.set_transform(transform)
+        dataset_eval.set_transform(transform)
+
     else:
         if img_dir is not None:
             def transform(examples):
@@ -408,6 +416,7 @@ if __name__ == "__main__":
     parser.add_argument('--eval_sample_size', type=int, default=1000, help='number of images to sample when using eval_many mode')
 
     args = parser.parse_args()
+    print(args.segmentation_guided)
 
     main(
         args.mode,

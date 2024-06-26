@@ -200,4 +200,7 @@ def train_loop(config, model, noise_scheduler, optimizer, train_dataloader, eval
                 evaluate(config, epoch, pipeline)
 
         if (epoch + 1) % config.save_model_epochs == 0 or epoch == config.num_epochs - 1:
-            pipeline.save_pretrained(config.output_dir)
+            try:
+                pipeline.save_pretrained(config.output_dir)
+            except AttributeError as e:
+                print(f"Failed to save with safetensors: {e}")
