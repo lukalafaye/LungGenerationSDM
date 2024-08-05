@@ -1,0 +1,12 @@
+{
+  "_class_name": "SegGuidedDDPMPipeline",
+  "_diffusers_version": "0.28.2",
+  "scheduler": [
+    "diffusers",
+    "DDPMScheduler"
+  ],
+  "unet": [
+    "diffusers",
+    "UNet2DModel"
+  ]
+}
