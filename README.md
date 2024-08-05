@@ -29,7 +29,7 @@ Once you've downloaded the checkpoint and config file for your model of choice, 
 
 Put both files in a directory called `ddpm-lungs-512-segguided/unet` to use it with our evaluation code. 
 
-Next, you can proceed to the [**Evaluation/Sampling**]() section below to generate images from these models.
+Next, you can proceed to the [**Evaluation/Sampling**](https://github.com/lukalafaye/LungGenerationSDM?tab=readme-ov-file#evaluationsampling) section below to generate images from these models.
 
 ## Train your own model
 
