@@ -8,6 +8,7 @@ This repository contains the implementation of a Segmentation Guided Diffusion m
 
 The method used in this project outperforms existing segmentation-guided image generative models (like [SPADE](https://github.com/NVlabs/SPADE), [ControlNet](https://github.com/lllyasviel/ControlNet) or [Pix2Pix](https://github.com/phillipi/pix2pix) in terms of the faithfulness of generated images to input masks, on lung radio medical image datasets, and is on par for anatomical realism. It is also simple to use and train, and its precise pixel-wise obedience to input segmentation masks is due to it always operating in the native image space (it's not a latent diffusion model), which is especially helpful when conditioning on the complex and detailed anatomical structure of the lung.
 
+![poster.jpg](poster.jpg)
 
 **Using this code, you can:**
 1. Train a segmentation-guided (or standard unconditional) diffusion model on your own lung radios dataset, with a wide range of options.

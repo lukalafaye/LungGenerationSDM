@@ -8,6 +8,7 @@ This repository contains the implementation of a Segmentation Guided Diffusion m
 
 The method used in this project outperforms existing segmentation-guided image generative models (like [SPADE](https://github.com/NVlabs/SPADE), [ControlNet](https://github.com/lllyasviel/ControlNet) or [Pix2Pix](https://github.com/phillipi/pix2pix) in terms of the faithfulness of generated images to input masks, on lung radio medical image datasets, and is on par for anatomical realism. It is also simple to use and train, and its precise pixel-wise obedience to input segmentation masks is due to it always operating in the native image space (it's not a latent diffusion model), which is especially helpful when conditioning on the complex and detailed anatomical structure of the lung.
 
+![poster.jpg](poster.jpg)
 
 **Using this code, you can:**
 1. Train a segmentation-guided (or standard unconditional) diffusion model on your own lung radios dataset, with a wide range of options.
@@ -29,7 +30,7 @@ Once you've downloaded the checkpoint and config file for your model of choice, 
 
 Put both files in a directory called `ddpm-lungs-512-segguided/unet` to use it with our evaluation code. 
 
-Next, you can proceed to the [**Evaluation/Sampling**]() section below to generate images from these models.
+Next, you can proceed to the [**Evaluation/Sampling**](https://github.com/lukalafaye/LungGenerationSDM?tab=readme-ov-file#evaluationsampling) section below to generate images from these models.
 
 ## Train your own model
 
@@ -150,8 +151,6 @@ The full command is written in [evaluate.sh](evaluate.sh).
 Our code has further options for training and evaluation; run `python3 main.py --help` for more information. Further settings still can be changed under `class TrainingConfig:` in `training.py` (some of which are exposed as command-line options for `main.py`, and some of which are not).
 
 ## Built With
-
-Thank you to Hugging Face's awesome  library for providing a helpful backbone for our code!
 
 * [**Diffusers**](https://github.com/huggingface/diffusers) - Hugging Face library
 
