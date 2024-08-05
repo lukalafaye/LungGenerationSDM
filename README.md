@@ -151,8 +151,6 @@ Our code has further options for training and evaluation; run `python3 main.py -
 
 ## Built With
 
-Thank you to Hugging Face's awesome  library for providing a helpful backbone for our code!
-
 * [**Diffusers**](https://github.com/huggingface/diffusers) - Hugging Face library
 
 Thanks to Nicholas Konz, Yuwen Chen, Haoyu Dong, and Maciej A. Mazurowsk for their work on the method used in this project.
